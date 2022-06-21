@@ -1,0 +1,8 @@
+#! /bin/bash
+
+# NAME=$1
+# echo hello $NAME
+
+function demand2 () {
+	echo hello $@
+}

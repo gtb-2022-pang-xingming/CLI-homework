@@ -1,0 +1,88 @@
+# Customer demand: show 'Hellow world' on the screen when people get in.
+# This is a script be designed to fullfill this demand.
+
+$ pwd
+$ mkdir CLI-homework
+$ cd CLI-homework
+$ git init
+$ touch homework1.txt
+$ code homework1.txt
+
+# homework1.txt is this file, noting down operation.
+
+$ idea ~/.bashrc
+$ notepad ./demand1
+
+# a new notepad 'demand1' is created, designed script as follow:
+    #! /bin/bash
+
+    echo hello world
+
+$ demand1
+
+# Problem! bash: demand1: command not found
+# solving problem: $ export PATH="$PWD:$PATH"
+
+# Problem! Permision deny
+# chmod +x demand1
+
+$ demand1
+# 'hello world' is printed in git bash
+
+# start from here is demand2, cleint need self-designed name
+# a new notepad 'demand2' is created, designed script as follow:
+    #! /bin/bash
+
+    NAME=$1
+    echo hello $NAME
+$ export PATH="$PWD:$PATH"
+$ demand2 123
+
+$ idea ~/.bashrc
+
+    function demand2 () {
+            echo hello $@
+    }
+
+$ demand2 123
+
+$ idea ~/bin/demand2
+    #! /bin/sh
+
+    NAME="$@"
+
+    echo hello $NAME
+
+$ demand2 123
+
+# The following part is third demand, timing
+
+$ date "+%Y-%m-%d %H:%M:%S"
+$ notepad ./demand3
+    #!/bin/bash
+
+    TIME=$(date"+%Y-%m-%d %H:%M:%S)
+    echo $TIME hello world
+
+$ demand3
+
+# demand4, certain name reflected to user ID
+
+$ cat name.list
+$ grep jdu name.list
+$ cut -d' ' -f2 name.list
+$ notepad ./demand4
+    #! /bin/bash
+
+    TS=$(date "%Y-%m-%d %H:%M:%S")
+    ID=$1
+    NAME=$(grep $1 name.list | cut -d' ' -f2)
+    if [[ "" == "$NAME" ]]
+    then
+        NAME="unknown"
+    fi
+
+    echo "[$TS] hello $NAME"
+
+$ demand4 123
+$ demand4 jdu

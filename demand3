@@ -1,0 +1,5 @@
+#! /bin/bash
+
+NAME=$1
+TIME=$(date "+%Y-%m-%d %H:%M:%S")
+echo $TIME hello $NAME
